@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+    <f:view>
+            <h:form>
+                 <h:panelGrid columns="2">
+                     <h:outputLabel value="name" for="name" />
+                     <h:outputLabel value="#{logincontroller.getlogin().name}" id="name" />
+                    
+                    <h:outputLabel value="own1" for="own1" />
+                    <h:inputText id="own1" value="#{mylikeandowncontroller.getSelected().own1}" title="own1" />
+                     <h:outputLabel value="own2" for="own2" />
+                    <h:inputText id="own2" value="#{mylikeandowncontroller.getSelected().own2}" title="own2" />
+                     <h:outputLabel value="own3" for="own3" />
+                    <h:inputText id="own3" value="#{mylikeandowncontroller.getSelected().own3}" title="own3" />
+                     <h:outputLabel value="like1" for="like1" />
+                    <h:inputText id="like1" value="#{mylikeandowncontroller.getSelected().like1}" title="like1" />
+                     <h:outputLabel value="like2" for="like2" />
+                    <h:inputText id="like2" value="#{mylikeandowncontroller.getSelected().like2}" title="like2" />
+                     <h:outputLabel value="like3" for="like3" />
+                     <h:inputText id="like3" value="#{mylikeandowncontroller.getSelected().like3}" title="like3" />
+                </h:panelGrid>
+               
+               <h:commandButton actionListener="#{mylikeandowncontroller.create}" value="create" />
+         
+                
+            </h:form>
+    </f:view>
+
+    </h:body>
+</html>
+

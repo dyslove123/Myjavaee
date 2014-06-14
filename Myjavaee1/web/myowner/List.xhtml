@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMyownerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMyownerEmpty}" rendered="#{myownerController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{myownerController.items.rowCount > 0}">
+                    <h:outputText value="#{myownerController.pagination.pageFirstItem + 1}..#{myownerController.pagination.pageLastItem + 1}/#{myownerController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{myownerController.previous}" value="#{bundle.Previous} #{myownerController.pagination.pageSize}" rendered="#{myownerController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{myownerController.next}" value="#{bundle.Next} #{myownerController.pagination.pageSize}" rendered="#{myownerController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{myownerController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_like1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.like1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_like2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.like2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_like3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.like3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_own1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.own1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_own2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.own2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMyownerTitle_own3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.own3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{myownerController.prepareView}" value="#{bundle.ListMyownerViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{myownerController.prepareEdit}" value="#{bundle.ListMyownerEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{myownerController.destroy}" value="#{bundle.ListMyownerDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{myownerController.prepareCreate}" value="#{bundle.ListMyownerCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMyownerIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMyownerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMyownerLabel_name}"/>
+                    <h:outputText value="#{myownerController.selected.name}" title="#{bundle.ViewMyownerTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_like1}"/>
+                    <h:outputText value="#{myownerController.selected.like1}" title="#{bundle.ViewMyownerTitle_like1}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_like2}"/>
+                    <h:outputText value="#{myownerController.selected.like2}" title="#{bundle.ViewMyownerTitle_like2}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_like3}"/>
+                    <h:outputText value="#{myownerController.selected.like3}" title="#{bundle.ViewMyownerTitle_like3}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_own1}"/>
+                    <h:outputText value="#{myownerController.selected.own1}" title="#{bundle.ViewMyownerTitle_own1}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_own2}"/>
+                    <h:outputText value="#{myownerController.selected.own2}" title="#{bundle.ViewMyownerTitle_own2}"/>
+                    <h:outputText value="#{bundle.ViewMyownerLabel_own3}"/>
+                    <h:outputText value="#{myownerController.selected.own3}" title="#{bundle.ViewMyownerTitle_own3}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{myownerController.destroyAndView}" value="#{bundle.ViewMyownerDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMyownerEditLink}"/>
+                <br />
+                <h:commandLink action="#{myownerController.prepareCreate}" value="#{bundle.ViewMyownerCreateLink}" />
+                <br />
+                <h:commandLink action="#{myownerController.prepareList}" value="#{bundle.ViewMyownerShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMyownerIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+     <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Name" for="name" />
+                    <h:inputText id="name" value="#{registrationcontroller.selected.name}" title="name" >
+                        <f:validateLength minimum="5" maximum="10"/>
+                    </h:inputText>
+                    
+                     <h:outputLabel value="Keys" for="key" />
+                     <h:inputSecret id="key" value="#{registrationcontroller.selected.mykey}" title="name" >
+                     <f:validateLength minimum="5" maximum="10"/>
+                     </h:inputSecret>
+                     
+                </h:panelGrid>
+               
+               <h:commandButton action="#{registrationcontroller.createown}" value="create" />
+         
+      </h:form>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMyownerIndexLink}"/>
+           
+</html>
+

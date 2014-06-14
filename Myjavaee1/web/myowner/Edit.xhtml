@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMyownerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{myownerController.selected.name}" title="#{bundle.EditMyownerTitle_name}" required="true" requiredMessage="#{bundle.EditMyownerRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_like1}" for="like1" />
+                    <h:inputText id="like1" value="#{myownerController.selected.like1}" title="#{bundle.EditMyownerTitle_like1}" />
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_like2}" for="like2" />
+                    <h:inputText id="like2" value="#{myownerController.selected.like2}" title="#{bundle.EditMyownerTitle_like2}" />
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_like3}" for="like3" />
+                    <h:inputText id="like3" value="#{myownerController.selected.like3}" title="#{bundle.EditMyownerTitle_like3}" />
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_own1}" for="own1" />
+                    <h:inputText id="own1" value="#{myownerController.selected.own1}" title="#{bundle.EditMyownerTitle_own1}" />
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_own2}" for="own2" />
+                    <h:inputText id="own2" value="#{myownerController.selected.own2}" title="#{bundle.EditMyownerTitle_own2}" />
+                    <h:outputLabel value="#{bundle.EditMyownerLabel_own3}" for="own3" />
+                    <h:inputText id="own3" value="#{myownerController.selected.own3}" title="#{bundle.EditMyownerTitle_own3}" />
+                </h:panelGrid>
+                <h:commandLink action="#{myownerController.update}" value="#{bundle.EditMyownerSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMyownerViewLink}"/>
+                <br />
+                <h:commandLink action="#{myownerController.prepareList}" value="#{bundle.EditMyownerShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMyownerIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
