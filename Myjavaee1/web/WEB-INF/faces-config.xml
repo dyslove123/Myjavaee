@@ -8,7 +8,6 @@
             <base-name>/Bundle</base-name>
             <var>bundle</var>
         </resource-bundle>
-<<<<<<< HEAD
         <resource-bundle>
             <base-name>/Bundle</base-name>
             <var>bundle</var>
@@ -25,7 +24,5 @@
             <base-name>/Bundle1</base-name>
             <var>bundle1</var>
         </resource-bundle>
-=======
->>>>>>> parent of a61addb... fileupload success
     </application>
 </faces-config>
