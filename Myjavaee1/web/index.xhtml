@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
@@ -9,32 +11,51 @@
     <h:body>
         Hello from Facelets
         <h:form>
-        <h:message for="message"/>
-        <h:outputText id="message"/>
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces 欢迎使用页" />
-        <br />
-        <h:link outcome="/mylogin/List" value="Show All Mylogin Items"/>
-        <br />
-        <h:link outcome="/myowner/List" value="Show All Myowner Items"/>
-        <br/>
-        <h:link outcome="registration1" value="registration"/>
-        <br/>
-        <h:link outcome="login" value="login"/>
-        <br/>
-        <h:link outcome="likeandown" value="createlikeandown"/>
-          <br/>
-        <h:commandButton action="#{mylikeandowncontroller.preedit()}" value="edit" />
-          <br/>
-        <h:commandButton action="#{logincontroller.logout()}" value="logout" />
-<!--             <br/>
-        <h:commandButton action="#{myownercontroller.findlikeandown()}" value="findlikeandown" />-->
-        <br/>
-        <h:link outcome="findlikeandown" value="findlikeandown"/>
-        <br/>
-        <h:link outcome="message" value="message"/>
+            <h:message for="message"/>
+            <h:outputText id="message"/>
+            <br />
+            <h:link outcome="welcomePrimefaces" value="Primefaces 欢迎使用页" />
+            <br />
+            <h:link outcome="/mylogin/List" value="Show All Mylogin Items"/>
+            <br />
+            <h:link outcome="/myowner/List" value="Show All Myowner Items"/>
+            <br/>
+            <h:link outcome="registration1" value="registration"/>
+            <br/>
+            <h:link outcome="login" value="login"/>
+            <br/>
+            <h:link outcome="likeandown" value="createlikeandown"/>
+            <br/>
+            <h:commandButton action="#{mylikeandowncontroller.preedit()}" value="edit" />
+            <br/>
+            <h:commandButton action="#{logincontroller.logout()}" value="logout" />
+            <!--             <br/>
+            <h:commandButton action="#{myownercontroller.findlikeandown()}" value="findlikeandown" />-->
+            <br/>
+            <h:link outcome="findlikeandown" value="findlikeandown"/>
+            <br/>
+            <h:link outcome="message" value="message"/>
+            <br/>
+
         </h:form>
+        
+        
+        <h:form id="form" enctype="multipart/form-data" prependId="false">
+        
+        <p><h:inputFile id="file" value="#{fileUploadBean.uploadedFile}"> 
+          
+       </h:inputFile>
+        </p>
+       <br/>
+       
+       <h:commandButton id="button" value="Upload"/>
+       
+       #{fileUploadBean.fileText}
+       
+       <p><h:messages id="messages" /></p>
+    </h:form>
     </h:body>
+
 
 
 </html>
