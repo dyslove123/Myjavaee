@@ -20,6 +20,8 @@
             <br />
             <h:link outcome="/myowner/List" value="Show All Myowner Items"/>
             <br/>
+            <h:link outcome="/headpicture/List" value="Show All HeadPicture Items"/>
+            <br/>
             <h:link outcome="registration1" value="registration"/>
             <br/>
             <h:link outcome="login" value="login"/>
@@ -38,23 +40,29 @@
             <br/>
 
         </h:form>
-        
-        
+
+
         <h:form id="form" enctype="multipart/form-data" prependId="false">
+
+            <p><h:inputFile id="file" value="#{fileUploadBean.uploadedFile}"> 
+
+                </h:inputFile>
+            </p>
+            <br/>
+
+            <h:commandButton id="button" value="Upload"/>
+
+            #{fileUploadBean.fileText}
+
+            <p><h:messages id="messages" /></p>
+        </h:form>
+        <h:graphicImage value="resources/11111.jpg"  />
+
         
-        <p><h:inputFile id="file" value="#{fileUploadBean.uploadedFile}"> 
-          
-       </h:inputFile>
-        </p>
-       <br/>
-       
-       <h:commandButton id="button" value="Upload"/>
-       
-       #{fileUploadBean.fileText}
-       
-       <p><h:messages id="messages" /></p>
-    </h:form>
     </h:body>
+
+
+
 
 
 

@@ -14,6 +14,14 @@
                      <h:outputLabel value="name" for="name" />
                      <h:outputLabel value="#{logincontroller.getlogin().name}" for="name" />
                     
+                     <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().own1}}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{SkilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
+                     
+                     
+                     
                     <h:outputLabel value="own1" for="own1" />
                     <h:inputText id="own1" value="#{mylikeandowncontroller.getSelected().own1}" title="own1" />
                      <h:outputLabel value="own2" for="own2" />

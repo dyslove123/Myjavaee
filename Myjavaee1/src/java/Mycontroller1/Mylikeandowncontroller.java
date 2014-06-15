@@ -9,17 +9,13 @@ package Mycontroller1;
 import Mycontroller1.util.JsfUtil;
 import Myentitybean1.Mylogin;
 import Myentitybean1.Myowner;
-import Myfacade1.MyloginFacade;
 import Myfacade1.MyownerFacade;
 import java.util.List;
-import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.servlet.http.HttpSession;
 
 
