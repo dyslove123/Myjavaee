@@ -7,8 +7,10 @@
 package Mycontroller1;
 
 import Mycontroller1.util.JsfUtil;
+import Myentitybean1.Headpicture;
 import Myentitybean1.Mylogin;
 import Myentitybean1.Myowner;
+import Myfacade1.HeadpictureFacade;
 import Myfacade1.MyloginFacade;
 import Myfacade1.MyownerFacade;
 
@@ -32,6 +34,8 @@ public class registrationcontroller {
     private Mylogin create;
     @EJB
     private MyownerFacade ofa;
+    @EJB
+    private HeadpictureFacade picfa;
     /**
      * Creates a new instance of registrationcontroller
      */
@@ -55,7 +59,14 @@ public class registrationcontroller {
         Myowner now=new Myowner();
         now.setName(create.getName());
         ofa.create(now);
-        JsfUtil.addSuccessMessage(create.getName()+"correct");
+        Headpicture pic=new Headpicture();
+        pic.setName(create.getName());
+        pic.setRoot("resources//null.jpg");
+        this.picfa.create(pic);
+        
+        
+        
+        JsfUtil.addSuccessMessage(create.getName()+" correct "+ "and login success");
         HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
         session.setAttribute("login",true);
         session.setAttribute("name",create.getName());

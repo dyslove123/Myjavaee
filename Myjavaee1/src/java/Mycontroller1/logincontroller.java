@@ -106,11 +106,12 @@ EntityManager em;
        public String logout()
         {
             HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-            if((boolean)session.getAttribute("login"))
+            if(session.getAttribute("login")==null||(boolean)session.getAttribute("login")==false)
+                JsfUtil.addSuccessMessage("尚未登录");
+           else
             {session.invalidate();
             JsfUtil.addSuccessMessage("logout success");}
-            else
-                JsfUtil.addSuccessMessage("尚未登录");
+            
             return "index";
         }
     public logincontroller() {
