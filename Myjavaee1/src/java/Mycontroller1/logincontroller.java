@@ -11,6 +11,7 @@ import Myentitybean1.Mylogin;
 import Myentitybean1.Myowner;
 import Myfacade1.MyloginFacade;
 import Myfacade1.MyownerFacade;
+import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
