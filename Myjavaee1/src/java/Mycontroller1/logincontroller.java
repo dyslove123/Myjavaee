@@ -78,12 +78,12 @@ EntityManager em;
                  return "false";
             }
 //             login=ejbFacade.findbyname(current.getName());
-             Mylogin login2 = (Mylogin)
+            Mylogin login2 = (Mylogin)
             em.createNamedQuery("Mylogin.findByName").
-                    setParameter("name",current.getName()).getSingleResult();
-              if(login2.getMykey().equals(current.getMykey()))
+            setParameter("name",current.getName()).getSingleResult();
+            if(login2.getMykey().equals(current.getMykey()))
             {   
-                JsfUtil.addSuccessMessage(current.getName()+"login success");
+                JsfUtil.addSuccessMessage(current.getName()+" login success");
                 HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
                 session.setAttribute("login",true);
                 session.setAttribute("name",current.getName());
