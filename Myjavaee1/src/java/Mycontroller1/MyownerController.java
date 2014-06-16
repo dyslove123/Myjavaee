@@ -35,10 +35,10 @@ public class MyownerController implements Serializable {
     }
 //    public       prepareEdit
     public Myowner getSelected() {
-       
+        if (current == null) {
             current = new Myowner();
             selectedItemIndex = -1;
-     
+        }
         return current;
     }
 

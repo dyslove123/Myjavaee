@@ -16,6 +16,7 @@
             <base-name>/Bundle</base-name>
             <var>bundle</var>
         </resource-bundle>
+<<<<<<< HEAD
         <resource-bundle>
             <base-name>/Bundle1</base-name>
             <var>bundle1</var>
@@ -24,5 +25,7 @@
             <base-name>/Bundle2</base-name>
             <var>bundle2</var>
         </resource-bundle>
+=======
+>>>>>>> parent of 3c3abd7... skill list success start to dialog
     </application>
 </faces-config>

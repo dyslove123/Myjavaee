@@ -6,7 +6,6 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
         <h:outputStylesheet name="css/jsfcrud.cs"/>
     </h:head>
     <h:body>
@@ -23,10 +22,8 @@
             <br/>
             <h:link outcome="registration1" value="registration"/>
             <br/>
-            <h:link outcome="headpicture" value="headpicture"/>
-            <br/>
             <h:link outcome="login" value="login"/>
-
+         
             <br/>
             <h:commandButton action="#{mylikeandowncontroller.preedit()}" value="edit" />
             <br/>
@@ -39,7 +36,7 @@
             <h:link outcome="message" value="message"/>
             <br/>
 
-        </h:form>
+                  </h:form>
 
 
         <h:form id="form" enctype="multipart/form-data" prependId="false">
@@ -52,24 +49,30 @@
 
             <h:commandButton id="button" value="Upload"  action="#{fileUploadBean.getFileText()}"/>
 
+           
 
-
-
+            
         </h:form>
 
-
+ 
         <br />
         <h:link outcome="/headpicture/List" value="Show All Headpicture Items"/>
+<<<<<<< HEAD
         <br />
         <h:link outcome="/skilllist/List" value="Show All Skilllist Items"/>
         <br />
         <h:link outcome="/dialog/List" value="Show All Dialog Items"/>
+=======
+>>>>>>> parent of 3c3abd7... skill list success start to dialog
     </h:body>
 
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 3c3abd7... skill list success start to dialog
 </html>
 

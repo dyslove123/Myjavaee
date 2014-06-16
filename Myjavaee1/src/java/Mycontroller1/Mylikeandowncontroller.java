@@ -75,11 +75,6 @@ public class Mylikeandowncontroller {
     {
         HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
         current.setName( session.getAttribute("name").toString());  
-        Myowner last=ofa.find(session.getAttribute("name").toString());
-        SkilllistController ski=new SkilllistController();
-        ski.decreace(last);
-        ski.increace(current);
-        
         ofa.edit(current);
         JsfUtil.addSuccessMessage("edit success");
         return "index";

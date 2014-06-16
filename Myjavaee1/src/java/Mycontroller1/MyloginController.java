@@ -33,10 +33,10 @@ public class MyloginController implements Serializable {
     }
 
     public Mylogin getSelected() {
-      
+        if (current == null) {
             current = new Mylogin();
             selectedItemIndex = -1;
-      
+        }
         return current;
     }
 
