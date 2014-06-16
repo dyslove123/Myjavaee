@@ -13,19 +13,48 @@
                  <h:panelGrid columns="2">
                      <h:outputLabel value="name" for="name" />
                      <h:outputLabel value="#{logincontroller.getlogin().name}" for="name" />
-                    
+                     
                     <h:outputLabel value="own1" for="own1" />
-                    <h:inputText id="own1" value="#{mylikeandowncontroller.getSelected().own1}" title="own1" />
-                     <h:outputLabel value="own2" for="own2" />
-                    <h:inputText id="own2" value="#{mylikeandowncontroller.getSelected().own2}" title="own2" />
+                     
+                    <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().own1}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
+                     
+                    <h:outputLabel value="own2" for="own2" />
+                      <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().own2}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
+                    
+                   
+                    
                      <h:outputLabel value="own3" for="own3" />
-                    <h:inputText id="own3" value="#{mylikeandowncontroller.getSelected().own3}" title="own3" />
+                   <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().own3}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
                      <h:outputLabel value="like1" for="like1" />
-                    <h:inputText id="like1" value="#{mylikeandowncontroller.getSelected().like1}" title="like1" />
+                   <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().like1}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
                      <h:outputLabel value="like2" for="like2" />
-                    <h:inputText id="like2" value="#{mylikeandowncontroller.getSelected().like2}" title="like2" />
+                     <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().like2}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
                      <h:outputLabel value="like3" for="like3" />
-                     <h:inputText id="like3" value="#{mylikeandowncontroller.getSelected().like3}" title="like3" />
+                      <h:selectOneMenu value="#{mylikeandowncontroller.getSelected().like3}"
+                        styleClass="input" style="width:150px">
+                        <f:selectItem itemValue="" itemLabel="--请选择--" />
+                        <f:selectItems value="#{skilllistController.getItemsAvailableSelectOne()}" />
+                     </h:selectOneMenu>
                 </h:panelGrid>
                
                <h:commandButton actionListener="#{mylikeandowncontroller.edit}" value="edit" />

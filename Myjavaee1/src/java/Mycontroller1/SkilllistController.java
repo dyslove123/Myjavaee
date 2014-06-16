@@ -1,9 +1,10 @@
 package Mycontroller1;
 
-import Myentitybean1.Mylogin;
+import Myentitybean1.Skilllist;
 import Mycontroller1.util.JsfUtil;
 import Mycontroller1.util.PaginationHelper;
-import Myfacade1.MyloginFacade;
+import Myentitybean1.Myowner;
+import Myfacade1.SkilllistFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -18,29 +19,29 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("myloginController")
+@Named("skilllistController")
 @SessionScoped
-public class MyloginController implements Serializable {
+public class SkilllistController implements Serializable {
 
-    private Mylogin current;
+    private Skilllist current;
     private DataModel items = null;
     @EJB
-    private Myfacade1.MyloginFacade ejbFacade;
+    private Myfacade1.SkilllistFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public MyloginController() {
+    public SkilllistController() {
     }
 
-    public Mylogin getSelected() {
-      
-            current = new Mylogin();
+    public Skilllist getSelected() {
+        if (current == null) {
+            current = new Skilllist();
             selectedItemIndex = -1;
-      
+        }
         return current;
     }
 
-    private MyloginFacade getFacade() {
+    private SkilllistFacade getFacade() {
         return ejbFacade;
     }
 
@@ -61,20 +62,20 @@ public class MyloginController implements Serializable {
         }
         return pagination;
     }
- 
+
     public String prepareList() {
         recreateModel();
         return "List";
     }
 
     public String prepareView() {
-        current = (Mylogin) getItems().getRowData();
+        current = (Skilllist) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Mylogin();
+        current = new Skilllist();
         selectedItemIndex = -1;
         return "Create";
     }
@@ -82,16 +83,16 @@ public class MyloginController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MyloginCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle1").getString("SkilllistCreated"));
             return prepareCreate();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle1").getString("PersistenceErrorOccured"));
             return null;
         }
     }
 
     public String prepareEdit() {
-        current = (Mylogin) getItems().getRowData();
+        current = (Skilllist) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -99,16 +100,16 @@ public class MyloginController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MyloginUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle1").getString("SkilllistUpdated"));
             return "View";
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle1").getString("PersistenceErrorOccured"));
             return null;
         }
     }
 
     public String destroy() {
-        current = (Mylogin) getItems().getRowData();
+        current = (Skilllist) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -132,9 +133,9 @@ public class MyloginController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("MyloginDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle1").getString("SkilllistDeleted"));
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle1").getString("PersistenceErrorOccured"));
         }
     }
 
@@ -188,21 +189,34 @@ public class MyloginController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Mylogin getMylogin(java.lang.String id) {
+    public Skilllist getSkilllist(java.lang.String id) {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Mylogin.class)
-    public static class MyloginControllerConverter implements Converter {
+    void decreace(Myowner last) {
+        Skilllist skii=new Skilllist();
+        skii=ejbFacade.find(last.getLike1());
+        skii.setWant(skii.getWant()-1);
+        ejbFacade.edit(current);
+        
+   
+    }
+
+    void increace(Myowner current) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @FacesConverter(forClass = Skilllist.class)
+    public static class SkilllistControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            MyloginController controller = (MyloginController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "myloginController");
-            return controller.getMylogin(getKey(value));
+            SkilllistController controller = (SkilllistController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "skilllistController");
+            return controller.getSkilllist(getKey(value));
         }
 
         java.lang.String getKey(String value) {
@@ -222,11 +236,11 @@ public class MyloginController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof Mylogin) {
-                Mylogin o = (Mylogin) object;
-                return getStringKey(o.getName());
+            if (object instanceof Skilllist) {
+                Skilllist o = (Skilllist) object;
+                return getStringKey(o.getSkillname());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Mylogin.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Skilllist.class.getName());
             }
         }
 
